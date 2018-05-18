@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+</head>
+<body>
+    <div class="site-wrap">
+        <div class="button-wrap">
+            <p>Model</p>
+            <div class="button-line car-names">
+                <!--<div class="btn active">hello</div>-->
+            </div>
+            <p>Engines</p>
+            <div class="button-line car-engines">
+                <!--<div class="btn active">hello</div>-->
+            </div>
+        </div>
+        <div class="about-wrap">
+            hello
+        </div>
+    </div>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+<script>
+    $.ajax({
+        type: 'POST',
+        url: 'carlist.json',
+        data: { what: 'ever' },
+        dataType: 'json'
+    }).done(function (data) {
+
+        function displayCars() {
+            const carNameHtml = data.map(i => {
+                const carName = i.name;
+
+                return `<div class="btn btn-car">${carName}</div>`;
+
+                const carNameEngines = carName.map(io => {
+                    const carOneEngine = io;
+
+                    console.log(io)
+
+                    return `<div class="btn btn-car">${carOneEngine}</div>`;
+                })
+
+            }).join('')
+
+            const carNamesWrapper = document.querySelector('.car-names');
+            const carEnginesWrapper = document.querySelector('.car-engines');
+
+            carNamesWrapper.innerHTML = carNameHtml;
+            carEnginesWrapper.innerHTML = carNameEngines;
+
+            document.querySelectorAll('.btn-car').forEach((el) => {
+                el.addEventListener('click', clickButton)
+            });
+
+
+            function clickButton() {
+                console.log(regex)
+            }
+
+        }
+
+        displayCars()
+    })
+
+
+</script>
+
+<style>
+    html {
+        box-sizing: border-box;
+        background:#ffc600;
+        font-family:'helvetica neue';
+        font-size: 20px;
+        font-weight: 200;
+    }
+    body {
+        margin: 0;
+        color: #000;
+    }
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
+
+    p {
+        margin: 0 auto 0 0;
+        padding: 0 0 10px;
+    }
+
+    .site-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 25px 0;
+    }
+
+    .button-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        flex: 1 1 70%;
+        flex-direction: column;
+    }
+
+    .about-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        flex: 1 1 30%;
+    }
+
+    .button-line {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding-bottom: 15px;
+    }
+
+    .btn {
+        width: 150px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 15px 20px;
+        background: #ebebeb;
+        transition: 0.3s ease;
+        cursor: pointer;
+    }
+
+    .btn.active {
+        color: #fff;
+        background: #000;
+    }
+
+</style>
+
+</body>
+</html>

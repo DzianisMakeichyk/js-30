@@ -1,0 +1,38 @@
+[
+  {
+   "name": "PRO RS3",
+   "engines": [ "5.2L 532BHP", "4.2L 443BHP", "3.6L 374BHP", "2.0L 166BHP"],
+   "gearBox": {
+     "manual" : true,
+     "automatic" : true
+   },
+   "color": ["#ff33333", "#c0c0c0", "#ffb266", "#000"]
+ },
+ {
+   "name": "UBER RS2",
+   "engines": ["3.6L 374BHP", "2.0L 166BHP"],
+   "gearBox": {
+     "manual" : true,
+     "automatic" : false
+   },
+   "color": ["#ff33333", "#c0c0c0", "#ffb266"]
+ },
+ {
+   "name": "STANDARD",
+   "engines": ["2.0L 166BHP"],
+   "gearBox": {
+     "manual" : true,
+     "automatic" : true
+   },
+   "color": ["#ffb266", "#000"]
+ },
+ {
+   "name": "WK",
+   "engines": [ "5.2L 532BHP", "4.2L 443BHP"],
+   "gearBox": {
+     "manual" : false,
+     "automatic" : true
+   },
+   "color": ["#c0c0c0", "#ffb266", "#000"]
+ }
+]
